@@ -7,19 +7,19 @@
   <link rel="stylesheet" href="jquery-ui.min.css">
   <script src="jquery-ui.min.js"></script>
   <style type="text/css">
-.ga-grid {
+#ga-grid {
   list-style-type: none;
   margin: 0;
   padding: 0;
   width: 240px;
 }
-.ga-grid li {
+#ga-grid li {
   width: 75px;
   margin: 3px 3px 3px 0;
   padding: 1px;
   float: left;
 }
-.ga-grid .ga-ico {
+#ga-grid .ga-ico {
   display: block;
   vertical-align: top;
   text-align: center;
@@ -30,7 +30,7 @@
   background-image: url("gapps-icons.png");
   background-size: 92px 2460px;
 }
-.ga-grid .ga-ico-desc {
+#ga-grid .ga-ico-desc {
   display: block;
   vertical-align: bottom;
   text-align: center;
@@ -43,7 +43,7 @@
   width: 73px;
 
 }
-.ga-grid .ga-lnk {
+#ga-grid .ga-lnk {
   text-decoration: none;
 }
 /* Icons */
@@ -57,82 +57,101 @@
 .gi-gplay     { background-position: 0px -1143px; }
 .gi-gytube    { background-position: 0px -1835px; }
   </style>
-  <style>
-  /*#sortable { list-style-type: none; margin: 0; padding: 0; width: 300px; }
-  #sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left;}*/
-  </style>
 
-  <!-- script type="text/javascript">
-$(document).ready(function() {
-    $('.ga-link').on('click', function() {
-      window.close();
-    });
-});
-  </script -->
   <script>
+  var gapps_info = {
+    "gplus": {
+      "url" : "https://plus.google.com/",
+      "desc" : "Google+"
+    },
+    "gmail": {
+      "url" : "https://gmail.com/",
+      "desc" : "Gmail"
+    },
+    "gcal": {
+      "url" : "https://www.google.com/calendar/",
+      "desc" : "Calendar"
+    },
+    "gdoc": {
+      "url" : "https://docs.google.com/",
+      "desc" : "Docs"
+    },
+    "gdrv": {
+      "url" : "https://drive.google.com/",
+      "desc" : "Drive"
+    },
+    "gphotos": {
+      "url" : "https://photos.google.com/",
+      "desc" : "Photos"
+    },
+    "gmaps": {
+      "url" : "https://maps.google.com/",
+      "desc" : "Maps"
+    },
+    "gplay": {
+      "url" : "https://play.google.com/",
+      "desc" : "Play"
+    },
+    "gytube": {
+      "url" : "https://youtube.com/",
+      "desc" : "YouTube"
+    }
+  };
+
+  function store_sequence() {
+    as = new Array();
+    $("#ga-grid li").each(function() {
+      as.push($(this).data("ga-name"));
+    });
+    localStorage.setItem('ffx-addon-gglappbtn.sequence', JSON.stringify(as));
+    var s = localStorage.getItem('ffx-addon-gglappbtn.sequence');
+
+    // console.log(JSON.parse(s));
+  }
+
+  function load_sequence() {
+    var d = ["gplus","gmail","gcal","gdoc","gdrv","gphotos","gmaps","gplay","gytube"];
+    var s = localStorage.getItem('ffx-addon-gglappbtn.sequence');
+    return s ? JSON.parse(s) : d;
+  }
+
+  function layout_apps(list) {
+    $("#ga-grid").empty();
+
+    for (i=0,l=list.length;i < l; i++) {
+      key = list[i];
+      $("#ga-grid").append(
+        $('<li>').attr('class', 'ui-state-default')
+                 .data('ga-name', key).append(
+          $('<a>').attr('href', gapps_info[key]['url'])
+                  .attr('class', 'ga-lnk')
+                  .attr('target', '_blank').append(
+              $('<span>').attr('class', 'ga-ico gi-' + key)
+            ).append(
+              $('<span>').attr('class', 'ga-ico-desc').append(gapps_info[key]['desc'])
+            )
+          )
+      );
+    }
+  }
+
   $(function() {
-    $( "#sortable" ).sortable();
-    $( "#sortable" ).disableSelection();
+    var gapps = load_sequence();
+
+    layout_apps(gapps);
+
+    $("#ga-grid").sortable();
+    $("#ga-grid").disableSelection();
+
+    $("#ga-grid").on("sortupdate", function(event,ui) {
+      store_sequence();
+    });
   });
   </script>
 </head>
 
 <body>
-  <ul class="ga-grid" id="sortable">
-    <li class="ui-state-default">
-      <a class="ga-lnk" href="https://plus.google.com/" target="_blank">
-        <span class="ga-ico gi-gplus"></span>
-        <span class="ga-ico-desc">Google+</span>
-      </a>
-    </li>
-    <li class="ui-state-default">
-      <a class="ga-lnk" href="https://mail.google.com/" target="_blank">
-        <span class="ga-ico gi-gmail"></span>
-        <span class="ga-ico-desc">Gmail</span>
-      </a>
-    </li>
-    <li class="ui-state-default">
-      <a class="ga-lnk" href="https://www.google.com/calendar/" target="_blank">
-        <span class="ga-ico gi-gcal"></span>
-        <span class="ga-ico-desc">Calendar</span>
-      </a>
-    </li>
-    <li class="ui-state-default">
-      <a class="ga-lnk" href="https://docs.google.com/" target="_blank">
-        <span class="ga-ico gi-gdoc"></span>
-        <span class="ga-ico-desc">Docs</span>
-      </a>
-    </li>
-    <li class="ui-state-default">
-      <a class="ga-lnk" href="https://drive.google.com/" target="_blank">
-        <span class="ga-ico gi-gdrv"></span>
-        <span class="ga-ico-desc">Drive</span>
-      </a>
-    </li>
-    <li class="ui-state-default">
-      <a class="ga-lnk" href="https://photos.google.com/" target="_blank">
-        <span class="ga-ico gi-gphotos"></span>
-        <span class="ga-ico-desc">Photos</span>
-      </a>
-    </li>
-    <li class="ui-state-default">
-      <a class="ga-lnk" href="https://maps.google.com/" target="_blank">
-        <span class="ga-ico gi-gmaps"></span>
-        <span class="ga-ico-desc">Maps</span>
-      </a>
-    </li>
-    <li class="ui-state-default">
-      <a class="ga-lnk" href="https://play.google.com/" target="_blank">
-        <span class="ga-ico gi-gplay"></span>
-        <span class="ga-ico-desc">Play</span>
-      </a>
-    </li>
-    <li class="ui-state-default">
-      <a class="ga-lnk" href="https://youtube.com/" target="_blank">
-        <span class="ga-ico gi-gytube"></span>
-        <span class="ga-ico-desc">YouTube</span>
-      </a>
-    </li>
+  <ul id="ga-grid">
   </ul>
 </body>
 </html>
