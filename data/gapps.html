@@ -4,9 +4,20 @@
 <head>
   <meta charset="utf-8">
   <script src="jquery.min.js"></script>
+  <link rel="stylesheet" href="jquery-ui.min.css">
+  <script src="jquery-ui.min.js"></script>
   <style type="text/css">
-.ga-grid td {
+.ga-grid {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 240px;
+}
+.ga-grid li {
   width: 75px;
+  margin: 3px 3px 3px 0;
+  padding: 1px;
+  float: left;
 }
 .ga-grid .ga-ico {
   display: block;
@@ -46,6 +57,10 @@
 .gi-gplay     { background-position: 0px -1143px; }
 .gi-gytube    { background-position: 0px -1835px; }
   </style>
+  <style>
+  /*#sortable { list-style-type: none; margin: 0; padding: 0; width: 300px; }
+  #sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left;}*/
+  </style>
 
   <!-- script type="text/javascript">
 $(document).ready(function() {
@@ -54,72 +69,70 @@ $(document).ready(function() {
     });
 });
   </script -->
+  <script>
+  $(function() {
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+  });
+  </script>
 </head>
 
 <body>
-  <table>
-    <tbody class="ga-grid">
-      <tr>
-        <td>
-          <a class="ga-lnk" href="https://plus.google.com/" target="_blank">
-            <span class="ga-ico gi-gplus"></span>
-            <span class="ga-ico-desc">Google+</span>
-          </a>
-        </td>
-        <td>
-          <a class="ga-lnk" href="https://mail.google.com/" target="_blank">
-            <span class="ga-ico gi-gmail"></span>
-            <span class="ga-ico-desc">Gmail</span>
-          </a>
-        </td>
-        <td>
-          <a class="ga-lnk" href="https://www.google.com/calendar/" target="_blank">
-            <span class="ga-ico gi-gcal"></span>
-            <span class="ga-ico-desc">Calendar</span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a class="ga-lnk" href="https://docs.google.com/" target="_blank">
-            <span class="ga-ico gi-gdoc"></span>
-            <span class="ga-ico-desc">Docs</span>
-          </a>
-        </td>
-        <td>
-          <a class="ga-lnk" href="https://drive.google.com/" target="_blank">
-            <span class="ga-ico gi-gdrv"></span>
-            <span class="ga-ico-desc">Drive</span>
-          </a>
-        </td>
-        <td>
-          <a class="ga-lnk" href="https://photos.google.com/" target="_blank">
-            <span class="ga-ico gi-gphotos"></span>
-            <span class="ga-ico-desc">Photos</span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a class="ga-lnk" href="https://maps.google.com/" target="_blank">
-            <span class="ga-ico gi-gmaps"></span>
-            <span class="ga-ico-desc">Maps</span>
-          </a>
-        </td>
-        <td>
-          <a class="ga-lnk" href="https://play.google.com/" target="_blank">
-            <span class="ga-ico gi-gplay"></span>
-            <span class="ga-ico-desc">Play</span>
-          </a>
-        </td>
-        <td>
-          <a class="ga-lnk" href="https://youtube.com/" target="_blank">
-            <span class="ga-ico gi-gytube"></span>
-            <span class="ga-ico-desc">YouTube</span>
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <ul class="ga-grid" id="sortable">
+    <li class="ui-state-default">
+      <a class="ga-lnk" href="https://plus.google.com/" target="_blank">
+        <span class="ga-ico gi-gplus"></span>
+        <span class="ga-ico-desc">Google+</span>
+      </a>
+    </li>
+    <li class="ui-state-default">
+      <a class="ga-lnk" href="https://mail.google.com/" target="_blank">
+        <span class="ga-ico gi-gmail"></span>
+        <span class="ga-ico-desc">Gmail</span>
+      </a>
+    </li>
+    <li class="ui-state-default">
+      <a class="ga-lnk" href="https://www.google.com/calendar/" target="_blank">
+        <span class="ga-ico gi-gcal"></span>
+        <span class="ga-ico-desc">Calendar</span>
+      </a>
+    </li>
+    <li class="ui-state-default">
+      <a class="ga-lnk" href="https://docs.google.com/" target="_blank">
+        <span class="ga-ico gi-gdoc"></span>
+        <span class="ga-ico-desc">Docs</span>
+      </a>
+    </li>
+    <li class="ui-state-default">
+      <a class="ga-lnk" href="https://drive.google.com/" target="_blank">
+        <span class="ga-ico gi-gdrv"></span>
+        <span class="ga-ico-desc">Drive</span>
+      </a>
+    </li>
+    <li class="ui-state-default">
+      <a class="ga-lnk" href="https://photos.google.com/" target="_blank">
+        <span class="ga-ico gi-gphotos"></span>
+        <span class="ga-ico-desc">Photos</span>
+      </a>
+    </li>
+    <li class="ui-state-default">
+      <a class="ga-lnk" href="https://maps.google.com/" target="_blank">
+        <span class="ga-ico gi-gmaps"></span>
+        <span class="ga-ico-desc">Maps</span>
+      </a>
+    </li>
+    <li class="ui-state-default">
+      <a class="ga-lnk" href="https://play.google.com/" target="_blank">
+        <span class="ga-ico gi-gplay"></span>
+        <span class="ga-ico-desc">Play</span>
+      </a>
+    </li>
+    <li class="ui-state-default">
+      <a class="ga-lnk" href="https://youtube.com/" target="_blank">
+        <span class="ga-ico gi-gytube"></span>
+        <span class="ga-ico-desc">YouTube</span>
+      </a>
+    </li>
+  </ul>
 </body>
 </html>

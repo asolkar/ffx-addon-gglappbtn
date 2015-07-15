@@ -15,7 +15,7 @@ var button = ToggleButton({
 
 var panel = panels.Panel({
   width: 250,
-  height: 280,
+  height: 290,
   contentURL: self.data.url("gapps.html"),
   onHide: handleHide
 });
