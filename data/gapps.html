@@ -3,10 +3,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <script src="jquery.min.js"></script>
+  <!-- script src="jquery.min.js"></script>
+  <script src="jquery-ui.min.js"></script -->
   <link rel="stylesheet" href="jquery-ui.min.css">
-  <script src="jquery-ui.min.js"></script>
   <style type="text/css">
+#update-event {
+  display: none;
+}
 #ga-grid {
   list-style-type: none;
   margin: 0;
@@ -58,99 +61,10 @@
 .gi-gytube    { background-position: 0px -1835px; }
   </style>
 
-  <script>
-  var gapps_info = {
-    "gplus": {
-      "url" : "https://plus.google.com/",
-      "desc" : "Google+"
-    },
-    "gmail": {
-      "url" : "https://gmail.com/",
-      "desc" : "Gmail"
-    },
-    "gcal": {
-      "url" : "https://www.google.com/calendar/",
-      "desc" : "Calendar"
-    },
-    "gdoc": {
-      "url" : "https://docs.google.com/",
-      "desc" : "Docs"
-    },
-    "gdrv": {
-      "url" : "https://drive.google.com/",
-      "desc" : "Drive"
-    },
-    "gphotos": {
-      "url" : "https://photos.google.com/",
-      "desc" : "Photos"
-    },
-    "gmaps": {
-      "url" : "https://maps.google.com/",
-      "desc" : "Maps"
-    },
-    "gplay": {
-      "url" : "https://play.google.com/",
-      "desc" : "Play"
-    },
-    "gytube": {
-      "url" : "https://youtube.com/",
-      "desc" : "YouTube"
-    }
-  };
-
-  function store_sequence() {
-    as = new Array();
-    $("#ga-grid li").each(function() {
-      as.push($(this).data("ga-name"));
-    });
-    localStorage.setItem('ffx-addon-gglappbtn.sequence', JSON.stringify(as));
-    var s = localStorage.getItem('ffx-addon-gglappbtn.sequence');
-
-    // console.log(JSON.parse(s));
-  }
-
-  function load_sequence() {
-    var d = ["gplus","gmail","gcal","gdoc","gdrv","gphotos","gmaps","gplay","gytube"];
-    var s = localStorage.getItem('ffx-addon-gglappbtn.sequence');
-    return s ? JSON.parse(s) : d;
-  }
-
-  function layout_apps(list) {
-    $("#ga-grid").empty();
-
-    for (i=0,l=list.length;i < l; i++) {
-      key = list[i];
-      $("#ga-grid").append(
-        $('<li>').attr('class', 'ui-state-default')
-                 .data('ga-name', key).append(
-          $('<a>').attr('href', gapps_info[key]['url'])
-                  .attr('class', 'ga-lnk')
-                  .attr('target', '_blank').append(
-              $('<span>').attr('class', 'ga-ico gi-' + key)
-            ).append(
-              $('<span>').attr('class', 'ga-ico-desc').append(gapps_info[key]['desc'])
-            )
-          )
-      );
-    }
-  }
-
-  $(function() {
-    var gapps = load_sequence();
-
-    layout_apps(gapps);
-
-    $("#ga-grid").sortable();
-    $("#ga-grid").disableSelection();
-
-    $("#ga-grid").on("sortupdate", function(event,ui) {
-      store_sequence();
-    });
-  });
-  </script>
 </head>
 
 <body>
+  <span id="update-event"></span>
   <ul id="ga-grid">
   </ul>
 </body>

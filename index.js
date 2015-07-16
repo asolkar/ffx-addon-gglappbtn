@@ -1,6 +1,7 @@
 var { ToggleButton } = require('sdk/ui/button/toggle');
 var panels = require("sdk/panel");
 var self = require("sdk/self");
+var ss = require("sdk/simple-storage");
 
 var button = ToggleButton({
   id: "gglappbtn-tb-btn",
@@ -13,10 +14,17 @@ var button = ToggleButton({
   onChange: handleChange
 });
 
+if (!ss.storage.sequence) {
+  ss.storage.sequence = [];
+}
+
 var panel = panels.Panel({
   width: 250,
   height: 290,
   contentURL: self.data.url("gapps.html"),
+  contentScriptFile: [self.data.url("jquery.min.js"),
+                      self.data.url("jquery-ui.min.js"),
+                      self.data.url("gapps-panel.js")],
   onHide: handleHide
 });
 
@@ -31,3 +39,31 @@ function handleChange(state) {
 function handleHide() {
   button.state('window', {checked: false});
 }
+
+//
+// Communication with panel
+//
+// * Send initial sequence of app icons to the panel
+//
+panel.port.on('request-sequence', function() {
+  console.log("panel.port.on - request-sequence - Got initial sequence request");
+  // console.log("panel.port.emit - sending " + ss.storage.sequence);
+  panel.port.emit('sequence-init', ss.storage.sequence);
+});
+
+//
+// * When a link is clicked in the panel, hide the panel
+//
+panel.port.on('link-clicked', function(lnk) {
+  console.log("panel.port.on - Got link-clicked event from panel. Closing panel...");
+  panel.hide();
+});
+
+//
+// * When sequence is updated in panel, update prefs
+//
+panel.port.on('sequence-update', function(seq) {
+  console.log("panel.port.on - Got sequence-update event from panel - " + seq);
+  ss.storage.sequence = seq;
+  // console.log("panel.port.on - Sequence is now " + ss.storage.sequence);
+});
