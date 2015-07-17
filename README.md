@@ -6,17 +6,17 @@ Currently has a hard coded links to popular Google applications. There is no cus
 
 Supported apps:
 
-* gplus: Google+
-* gmail: Gmail
-* gcal: Calendar
-* gdoc: Docs
-* gdrv: Drive
-* gphotos: Photos
-* gmaps: Maps
-* gplay: Play
-* gytube: YouTube
-* gsheets: Sheets
-* gnews: News
+* `gplus`: Google+
+* `gmail`: Gmail
+* `gcal`: Calendar
+* `gdoc`: Docs
+* `gdrv`: Drive
+* `gphotos`: Photos
+* `gmaps`: Maps
+* `gplay`: Play
+* `gytube`: YouTube
+* `gsheets`: Sheets
+* `gnews`: News
 
 # Roadmap
 
