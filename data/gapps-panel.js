@@ -1,6 +1,10 @@
-//
+// -------------------------------------------------
 // Content script for the panel
-//
+// -------------------------------------------------
+
+// -------------------------------------------------
+// Resources
+// -------------------------------------------------
 var has_update = 0;
 var sequence = new Array();
 var gapps_info = {
@@ -19,6 +23,10 @@ var gapps_info = {
   "gdoc": {
     "url" : "https://docs.google.com/",
     "desc" : "Docs"
+  },
+  "gsheets": {
+    "url" : "https://sheets.google.com/",
+    "desc" : "Sheets"
   },
   "gdrv": {
     "url" : "https://drive.google.com/",
@@ -39,9 +47,20 @@ var gapps_info = {
   "gytube": {
     "url" : "https://youtube.com/",
     "desc" : "YouTube"
+  },
+  "gnews": {
+    "url" : "https://news.google.com/",
+    "desc" : "News"
   }
 };
 
+// -------------------------------------------------
+// Helper functions
+// -------------------------------------------------
+//
+// Goes through current app layout and generates an array (sequential)
+// of apps displayed
+//
 function get_sequence() {
   as = new Array();
   $("#ga-grid li").each(function() {
@@ -50,11 +69,21 @@ function get_sequence() {
   return as;
 }
 
+//
+// Checks if the current state of app sequence is valid. If not, uses
+// a default sequence of apps
+//
+// FIXME: See if 'applist' preference can be used instead of default. It may
+//        already be rendering the default below useless.
+//
 function load_sequence() {
-  var d = ["gplus","gmail","gcal","gdoc","gdrv","gphotos","gmaps","gplay","gytube"];
+  var d = ["gplus","gmail","gcal","gnews","gdrv","gphotos","gmaps","gplay","gytube"];
   return (sequence.length > 8) ? sequence : d;
 }
 
+//
+// Based on the current app sequence, construct the grid layout in the panel
+//
 function layout_apps(list) {
   $("#ga-grid").empty();
 
@@ -75,6 +104,9 @@ function layout_apps(list) {
   }
 }
 
+//
+// Layout the panel and set up event handlers
+//
 function load_panel() {
   var gapps = load_sequence();
 
@@ -82,9 +114,15 @@ function load_panel() {
 
   layout_apps(gapps);
 
+  //
+  // Set up grid sorting
+  //
   $("#ga-grid").sortable();
   $("#ga-grid").disableSelection();
 
+  //
+  // Let add-on know that app sequence was changed
+  //
   $("#ga-grid").on("sortupdate", function(event,ui) {
     var s = get_sequence();
     console.log("self.port.emit - Sending sequence-update event to add-on " + s);
@@ -95,11 +133,17 @@ function load_panel() {
     }, 100);
   });
 
+  //
+  // Setup to mask click handling during sorting
+  //
   $("#ga-grid").on("sortstart", function(event,ui) {
     console.log("Started sorting. Following click will not be entertained until sortupdate");
     has_update = 1;
   });
 
+  //
+  // Send link click event to add-on, so that panel can be hidden
+  //
   $(".ga-lnk").on("click", function(e) {
     if (has_update) {
       console.log("Skipping this click event - has_update=1");
@@ -110,11 +154,20 @@ function load_panel() {
   });
 }
 
+// -------------------------------------------------
+// Main function that sets up the panel
+// -------------------------------------------------
 $(function() {
-  self.port.emit('request-sequence', 'none');
+  //
+  // Initiate the panel by requesting current list of apps to display
+  //
+  self.port.emit('request-sequence', gapps_info);
 
-  self.port.on('sequence-init', function(seq) {
-    console.log("self.port.on - Got sequence init " + seq);
+  //
+  // Receive list of apps from the add-on and load the panel
+  //
+  self.port.on('sequence-update', function(seq) {
+    console.log("self.port.on - Got sequence update " + seq);
     sequence = seq;
 
     load_panel();
