@@ -10,5 +10,15 @@
     "firefox": ">=38.0a1",
     "thunderbird": ">=38.0a1"
   },
-  "license": "MIT"
+  "license": "MIT",
+
+  "preferences": [
+  {
+    "name": "applist",
+    "title": "Apps in app drawer",
+    "description": "List 9 apps to be included in the app drawer. Apps in the list can be re-arranged in the drawer. Following are available apps to choose from:\n  • gplus: Google+\n  • gmail: Gmail\n  • gcal: Calendar\n  • gdoc: Docs\n  • gdrv: Drive\n  • gphotos: Photos\n  • gmaps: Maps\n  • gplay: Play\n  • gytube: YouTube\n  • gsheets: Sheets\n  • gnews: News\n\nDefault set is:\n  gplus,gmail,gcal,gdoc,gdrv,gphotos,gmaps,gplay,gytube\n\nNote: If more than 9 apps are listed here, first 9 will be used.",
+    "type": "string",
+    "value": "gplus,gmail,gcal,gdoc,gdrv,gphotos,gmaps,gplay,gytube"
+  }]
+
 }

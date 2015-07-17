@@ -20,6 +20,10 @@ var gapps_info = {
     "url" : "https://docs.google.com/",
     "desc" : "Docs"
   },
+  "gsheets": {
+    "url" : "https://sheets.google.com/",
+    "desc" : "Sheets"
+  },
   "gdrv": {
     "url" : "https://drive.google.com/",
     "desc" : "Drive"
@@ -39,6 +43,10 @@ var gapps_info = {
   "gytube": {
     "url" : "https://youtube.com/",
     "desc" : "YouTube"
+  },
+  "gnews": {
+    "url" : "https://news.google.com/",
+    "desc" : "News"
   }
 };
 
@@ -51,7 +59,7 @@ function get_sequence() {
 }
 
 function load_sequence() {
-  var d = ["gplus","gmail","gcal","gdoc","gdrv","gphotos","gmaps","gplay","gytube"];
+  var d = ["gplus","gmail","gcal","gnews","gdrv","gphotos","gmaps","gplay","gytube"];
   return (sequence.length > 8) ? sequence : d;
 }
 

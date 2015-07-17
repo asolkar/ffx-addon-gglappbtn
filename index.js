@@ -1,7 +1,9 @@
-var { ToggleButton } = require('sdk/ui/button/toggle');
+var { ToggleButton } = require("sdk/ui/button/toggle");
 var panels = require("sdk/panel");
 var self = require("sdk/self");
 var ss = require("sdk/simple-storage");
+var prefs = require("sdk/simple-prefs").prefs;
+var app_info = require("data/app_info.json");
 
 var button = ToggleButton({
   id: "gglappbtn-tb-btn",
@@ -15,7 +17,8 @@ var button = ToggleButton({
 });
 
 if (!ss.storage.sequence) {
-  ss.storage.sequence = [];
+
+  ss.storage.sequence = prefs.applist;
 }
 
 var panel = panels.Panel({
@@ -27,6 +30,28 @@ var panel = panels.Panel({
                       self.data.url("gapps-panel.js")],
   onHide: handleHide
 });
+
+function get_pref_applist() {
+  var ret;
+
+  ret = prefs.applist.split(",", 9).map(function (app) {
+    app.replace(/\s+/gi, '');
+  });
+
+  return ret;
+}
+
+//
+// Returns: applist if valid, empty array else
+//
+function validate_applist(applist) {
+  var ret = applist;
+
+  applist.every(function(e,i,a) {
+
+  });
+
+}
 
 function handleChange(state) {
   if (state.checked) {
