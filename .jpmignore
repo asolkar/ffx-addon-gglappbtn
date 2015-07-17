@@ -1,0 +1,6 @@
+# Things that don't need to go in the XPI
+assets/
+test/
+build/
+README.md
+.git

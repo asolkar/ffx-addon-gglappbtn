@@ -2,3 +2,4 @@
 # Release/build directories
 #
 build/
+*.xpi

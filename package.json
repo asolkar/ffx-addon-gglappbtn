@@ -1,7 +1,7 @@
 {
   "title": "Google App Launcher",
   "name": "gglappbtn",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "icon": "icon.png",
   "description": "Simple access to Google Applications with a toolbar button",
   "main": "index.js",
