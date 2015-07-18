@@ -4,3 +4,5 @@ test/
 build/
 README.md
 .git
+.gitignore
+.jpmignore
