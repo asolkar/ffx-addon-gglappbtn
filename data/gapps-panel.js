@@ -7,52 +7,6 @@
 // -------------------------------------------------
 var has_update = 0;
 var sequence = new Array();
-var gapps_info = {
-  "gplus": {
-    "url" : "https://plus.google.com/",
-    "desc" : "Google+"
-  },
-  "gmail": {
-    "url" : "https://gmail.com/",
-    "desc" : "Gmail"
-  },
-  "gcal": {
-    "url" : "https://www.google.com/calendar/",
-    "desc" : "Calendar"
-  },
-  "gdoc": {
-    "url" : "https://docs.google.com/",
-    "desc" : "Docs"
-  },
-  "gsheets": {
-    "url" : "https://sheets.google.com/",
-    "desc" : "Sheets"
-  },
-  "gdrv": {
-    "url" : "https://drive.google.com/",
-    "desc" : "Drive"
-  },
-  "gphotos": {
-    "url" : "https://photos.google.com/",
-    "desc" : "Photos"
-  },
-  "gmaps": {
-    "url" : "https://maps.google.com/",
-    "desc" : "Maps"
-  },
-  "gplay": {
-    "url" : "https://play.google.com/",
-    "desc" : "Play"
-  },
-  "gytube": {
-    "url" : "https://youtube.com/",
-    "desc" : "YouTube"
-  },
-  "gnews": {
-    "url" : "https://news.google.com/",
-    "desc" : "News"
-  }
-};
 
 // -------------------------------------------------
 // Helper functions
@@ -96,6 +50,7 @@ function layout_apps(list) {
                 .attr('class', 'ga-lnk')
                 .attr('target', '_blank').append(
             $('<span>').attr('class', 'ga-ico gi-' + key)
+                       .css('background-position', gapps_info[key]['iconpos'])
           ).append(
             $('<span>').attr('class', 'ga-ico-desc').append(gapps_info[key]['desc'])
           )

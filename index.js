@@ -91,6 +91,7 @@ var panel = panels.Panel({
   contentURL: self.data.url("gapps.html"),
   contentScriptFile: [self.data.url("jquery.min.js"),
                       self.data.url("jquery-ui.min.js"),
+                      self.data.url("gapps-info.js"),
                       self.data.url("gapps-panel.js")],
   onHide: handleHide
 });
