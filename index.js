@@ -89,8 +89,8 @@ var panel = panels.Panel({
   width: 250,
   height: 290,
   contentURL: self.data.url("gapps.html"),
-  contentScriptFile: [self.data.url("jquery.min.js"),
-                      self.data.url("jquery-ui.min.js"),
+  contentScriptFile: [self.data.url("jquery.1.11.2.jquery-1.11.2.min.js"),
+                      self.data.url("jqueryui.1.11.2.jquery-ui.min.js"),
                       self.data.url("gapps-info.js"),
                       self.data.url("gapps-panel.js")],
   onHide: handleHide
