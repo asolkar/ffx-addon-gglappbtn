@@ -2,6 +2,8 @@
 
 Simple access to Google Applications with a tool bar button
 
+> [Get on AMO](https://addons.mozilla.org/en-US/firefox/addon/google-app-launcher/)
+
 Currently has a hard coded links to popular Google applications. There is no customization support.
 
 Supported apps:
