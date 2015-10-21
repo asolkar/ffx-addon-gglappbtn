@@ -7,7 +7,7 @@
   "main": "index.js",
   "author": "Mahesh Asolkar (asolkar@gmail.com)",
   "engines": {
-    "firefox": ">=38.0a1"
+    "firefox": ">=38.0a1 <=44.0a1"
   },
   "license": "MIT",
 
