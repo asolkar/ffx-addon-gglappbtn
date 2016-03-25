@@ -75,5 +75,20 @@ var gapps_info = {
       "url" : "https://contacts.google.com/",
       "desc" : "Contacts",
       "iconpos" : "0px -1726px"
+  },
+  "gtrans": {
+      "url" : "https://translate.google.com/",
+      "desc" : "Translate",
+      "iconpos" : "0px -207px"
+  },
+  "gkeep": {
+      "url" : "https://keep.google.com/",
+      "desc" : "Keep",
+      "iconpos" : "0px -1996px"
+  },
+  "gmusic": {
+      "url" : "https://play.google.com/music/listen",
+      "desc" : "Music",
+      "iconpos" : "0px -2060px"
   }
 };
