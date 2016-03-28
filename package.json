@@ -1,7 +1,7 @@
 {
   "title": "Google App Launcher",
   "name": "gglappbtn",
-  "version": "0.8.6",
+  "version": "0.8.7",
   "icon": "icon.png",
   "description": "Simple access to Google Applications with a toolbar button",
   "main": "index.js",
@@ -15,7 +15,7 @@
   {
     "name": "applist",
     "title": "Apps in app drawer",
-    "description": "List 9 apps to be included in the app drawer. Apps in the list can be re-arranged in the drawer. Following are available apps to choose from:\n  • gplus: Google+\n  • gmail: Gmail\n  • gcal: Calendar\n  • gdoc: Docs\n  • gdrv: Drive\n  • gphotos: Photos\n  • gmaps: Maps\n  • gplay: Play\n  • gytube: YouTube\n  • gsheets: Sheets\n  • gnews: News\n  • gwall: Wallet\n  • ghang: Hangouts\n  • gcont: Contacts\n\nDefault set is:\n  gplus,gmail,ghang,gcal,gdrv,gphotos,gmaps,gplay,gytube\n\nNote: If more than 9 apps are listed here, first 9 will be used.",
+    "description": "List 9 apps to be included in the app drawer. Apps in the list can be re-arranged in the drawer. Following are available apps to choose from:\n  • gplus: Google+\n  • gmail: Gmail\n  • gcal: Calendar\n  • gdoc: Docs\n  • gsheets: Sheets\n  • gdrv: Drive\n  • gphotos: Photos\n  • gmaps: Maps\n  • gplay: Play\n  • gytube: Youtube\n  • gnews: News\n  • gwall: Wallet\n  • ghang: Hangouts\n  • gcont: Contacts\n  • gtrans: Translate\n  • gkeep: Keep\n  • gmusic: Music\n\nDefault set is:\n  gplus,gmail,ghang,gcal,gdrv,gphotos,gmaps,gplay,gytube\n\nNote: If more than 9 apps are listed here, first 9 will be used.",
     "type": "string",
     "value": "gplus,gmail,ghang,gcal,gdrv,gphotos,gmaps,gplay,gytube"
   }]

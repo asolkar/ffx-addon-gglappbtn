@@ -12,13 +12,19 @@ Supported apps:
 * `gmail`: Gmail
 * `gcal`: Calendar
 * `gdoc`: Docs
+* `gsheets`: Sheets
 * `gdrv`: Drive
 * `gphotos`: Photos
 * `gmaps`: Maps
 * `gplay`: Play
-* `gytube`: YouTube
-* `gsheets`: Sheets
+* `gytube`: Youtube
 * `gnews`: News
+* `gwall`: Wallet
+* `ghang`: Hangouts
+* `gcont`: Contacts
+* `gtrans`: Translate
+* `gkeep`: Keep
+* `gmusic`: Music
 
 # Roadmap
 
