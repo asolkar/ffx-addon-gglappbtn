@@ -24,15 +24,6 @@ function get_sequence() {
 }
 
 //
-// Checks if the current state of app sequence is valid. If not, uses
-// a default sequence of apps
-//
-//function load_sequence() {
-// var d = get_pref_applist();
-//  return (sequence.length > 8) ? sequence : d;
-//}
-
-//
 // Based on the current app sequence, construct the grid layout in the panel
 //
 function layout_apps(list) {
@@ -100,24 +91,48 @@ function load_panel(gapps) {
   });
 }
 
+//
+// Split the comma separated app list into an array. Use only the first
+// 9 apps to form 3x3 grid
+//
+function get_applist_arr(applist) {
+  var ret;
+
+  ret = applist.split(",", 9)
+  ret.map(function (app) {
+    app.replace(/\s+/gi, '');
+  });
+
+  return ret;
+};
+
+//
+// Helper function for validating items in the App list array.
+// Returns: applist if valid, empty array else
+//
+// Validated to make sure that App list items are valid keys to
+// the App information object
+//
+function validate_applist(applist,gapps_info) {
+  applist.every(function(e,i,a) {
+    if (!gapps_info.e) {
+      return new Array;
+    }
+  });
+
+  return applist;
+}
+
 // -------------------------------------------------
 // Main function that sets up the panel
 // -------------------------------------------------
 $(function() {
-  console.log("gapps-panel.js - Entered");
-  //
-  // Initiate the panel by requesting current list of apps to display
-  //
-  var sending = browser.runtime.sendMessage({
-    'op': 'request-sequence',
-    'cont': gapps_info
+  var default_applist = Object.keys(gapps_info).slice(0,9).join(',');
+
+  browser.storage.local.get({
+    appList: default_applist
+  }, function(items) {
+    var applst = validate_applist(get_applist_arr(items.appList), gapps_info);
+    load_panel(applst);
   });
-  sending.then(function(msg) {
-    console.log("sequence-update - msg_listener - Msg: " + msg);
-    if (msg.op == 'sequence-update') {
-      sequence = msg.cont;
-      load_panel(sequence);
-    }
-  });
-  console.log("gapps-panel.js - Sent request-sequence message");
 });
