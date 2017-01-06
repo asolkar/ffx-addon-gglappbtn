@@ -1,6 +1,0 @@
-#
-# Release/build directories
-#
-build/
-*.xpi
-node_modules/

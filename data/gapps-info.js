@@ -67,28 +67,33 @@ var gapps_info = {
     "iconpos" : "0px -414px"
   },
   "ghang": {
-      "url" : "https://hangouts.google.com/",
-      "desc" : "Hangouts",
-      "iconpos" : "0px 0px"
+    "url" : "https://hangouts.google.com/",
+    "desc" : "Hangouts",
+    "iconpos" : "0px 0px"
   },
   "gcont": {
-      "url" : "https://contacts.google.com/",
-      "desc" : "Contacts",
-      "iconpos" : "0px -1726px"
+    "url" : "https://contacts.google.com/",
+    "desc" : "Contacts",
+    "iconpos" : "0px -1726px"
   },
   "gtrans": {
-      "url" : "https://translate.google.com/",
-      "desc" : "Translate",
-      "iconpos" : "0px -207px"
+    "url" : "https://translate.google.com/",
+    "desc" : "Translate",
+    "iconpos" : "0px -207px"
   },
   "gkeep": {
-      "url" : "https://keep.google.com/",
-      "desc" : "Keep",
-      "iconpos" : "0px -1996px"
+    "url" : "https://keep.google.com/",
+    "desc" : "Keep",
+    "iconpos" : "0px -1996px"
   },
   "gmusic": {
-      "url" : "https://play.google.com/music/listen",
-      "desc" : "Music",
-      "iconpos" : "0px -2060px"
+    "url" : "https://play.google.com/music/listen",
+    "desc" : "Music",
+    "iconpos" : "0px -2060px"
+  },
+  "google": {
+    "url" : "https://www.google.com",
+    "desc" : "Search",
+    "iconpos" : "0px -1032px"
   }
 };

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  <style type="text/css">
+body {
+  font-family: sans-serif;
+}
+.option-head {
+  font-weight: bold;
+  font-size: medium;
+}
+.option-desc {
+  font-size: small;
+  margin-top: 1.2em;
+}
+#applist-val {
+  border: thin solid #eee;
+  font-family: monospace;
+  width: 100%;
+  margin: 5px;
+  padding: 2px;
+}
+#applist-val .good { color: green; }
+#applist-val .bad  { color: red; }
+#applist-val .dup  { color: orange; }
+#applist-val .exc  { color: #eee; }
+  </style>
+  </head>
+
+  <body>
+    <div style="width: 700px">
+    <label>
+      <div class="option-head">Application list</div>
+      <div class="option-desc">
+        List 9 apps to be included in the app drawer. Apps in the list can be
+        re-arranged in the drawer. Following are available apps to choose from:
+        <ul id="supported_apps">
+        </ul>
+        <div>
+          Default set is: <code id="default_apps"></code>
+        </div>
+        <p>
+        Note: If more than 9 apps are listed here, first 9 will be used
+      </div>
+      <div id="applist-val">&nbsp;</div>
+      <input type="text" size="100%" id="appList" style="margin-bottom:1em"></input>
+    </label>
+
+    <form id="values">
+      <div style="float: right">
+        <button type="submit">Save</button>
+      </div>
+    </form>
+
+    <form id="defs">
+      <div style="float: left">
+        <button type="submit">Restore defaults</button>
+      </div>
+    </form>
+    </div>
+
+    <script src="jquery.min.js"></script>
+    <script src="gapps-info.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>
