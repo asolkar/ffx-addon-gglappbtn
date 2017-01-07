@@ -1,10 +1,6 @@
 // -------------------------------------------------
 // Content script for the panel
 // -------------------------------------------------
-
-// -------------------------------------------------
-// Resources
-// -------------------------------------------------
 var has_update = 0;
 var sequence = new Array();
 
@@ -39,7 +35,7 @@ function layout_apps(list) {
             $('<span>').attr('class', 'ga-ico gi-' + key)
                        .css('background-position', gapps_info[key]['iconpos'])
           ).append(
-            $('<span>').attr('class', 'ga-ico-desc').append(gapps_info[key]['desc'])
+            $('<span>').attr('class', 'ga-ico-desc').text(gapps_info[key]['desc'])
           )
         )
     );

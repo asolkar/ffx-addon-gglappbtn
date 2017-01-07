@@ -8,7 +8,7 @@ var default_applist = Object.keys(gapps_info).slice(0,9).join(',');
 //
 function save(e) {
   browser.storage.local.set({
-    appList: document.querySelector("#appList").value
+    appList: $("#appList").val()
   });
   e.preventDefault();
 }
@@ -33,7 +33,7 @@ function setdefault(e) {
 function restore() {
   function set(res) {
     console.log(res);
-    document.querySelector("#appList").value = res.appList;
+    $("#appList").val(res.appList);
     applist_edit();
   }
   function onError(e) {
@@ -51,24 +51,27 @@ function restore() {
 function validate_list(lst) {
   var sep = /\s*,\s*/;
   var apps = lst.split(sep);
-  var val_arr = new Array();
+  var val_arr = $('<div>');
 
   for (i = 0; i < apps.length; i++) {
     var cls = (i > 8) ? 'exc' :
               (gapps_info.hasOwnProperty(apps[i])) ?
                 (((i>0) && (apps.slice(0,i).includes(apps[i]))) ? 'dup' : 'good') : 'bad';
 
-    val_arr.push('<span class="' + cls + '">' + apps[i] + '</span>');
+    var a = $('<span>').attr('class', cls).text(apps[i]);
+    val_arr.append(a);
+    if ((apps.length > 1) && (i < apps.length-1)) {
+      val_arr.append(",");
+    }
   }
-
-  return val_arr.join(",");
+  return val_arr;
 }
 
 //
 // Handler for applist form input. Triggers validation of input text
 //
 function applist_edit(e) {
-  document.querySelector("#applist-val").innerHTML = validate_list(document.querySelector("#appList").value);
+  $("#applist-val").empty().append(validate_list($("#appList").val()));
 }
 
 //
@@ -83,9 +86,8 @@ $(function() {
     $("#supported_apps").append(
       $('<li>').attr('class', 'sa-name-cls')
                .data('sa-name', key).append(
-                 $('<code>').append(
-                    key
-                 ), ": ", gapps_info[key]['desc'])
+                 $('<code>').text(key),$('<span>').text(": " + gapps_info[key]['desc'])
+               )
     );
   }
 
@@ -95,8 +97,8 @@ $(function() {
 //
 // Register listeners
 //
-document.addEventListener("DOMContentLoaded", restore);
-document.querySelector("form#values").addEventListener("submit", save);
-document.querySelector("form#defs").addEventListener("submit", setdefault);
-document.querySelector("#appList").addEventListener("keyup", applist_edit);
+$(document).ready(restore);
+$("form#values").on("submit", save);
+$("form#defs").on("submit", setdefault);
+$("#appList").on("keyup", applist_edit);
 browser.storage.onChanged.addListener(restore);
