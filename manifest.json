@@ -23,7 +23,12 @@
   "browser_action": {
     "default_icon": "icons/gglappbtn-icon-32.png",
     "default_title": "Google Applications",
-    "default_popup": "data/gapps.html"
+    "default_popup": "data/gapps.html",
+    "theme_icons": [{
+      "light": "icons/gglappbtn-dark-icon-32.png",
+      "dark": "icons/gglappbtn-icon-32.png",
+      "size": 32
+    }]
   },
 
   "options_ui": {
