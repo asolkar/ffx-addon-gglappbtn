@@ -7,7 +7,7 @@ var default_applist = Object.keys(gapps_info).slice(0,9).join(',');
 // Set applist falue from options form input into local storage
 //
 function save(e) {
-  browser.storage.local.set({
+  browser.storage.sync.set({
     appList: $("#appList").val()
   });
   e.preventDefault();
@@ -17,7 +17,7 @@ function save(e) {
 // Restore default applist into local storage
 //
 function setdefault(e) {
-  var setting = browser.storage.local.set({
+  var setting = browser.storage.sync.set({
     appList: default_applist
   });
   setting.then(function(items) {
@@ -41,7 +41,7 @@ function restore() {
     console.log(e);
     setdefault();
   }
-  var getting = browser.storage.local.get("appList");
+  var getting = browser.storage.sync.get("appList");
   getting.then(set, onError);
 }
 

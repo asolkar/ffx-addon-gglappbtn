@@ -61,7 +61,7 @@ function load_panel(gapps) {
   //
   $("#ga-grid").on("sortupdate", function(event,ui) {
     var s = get_sequence();
-    browser.storage.local.set({'appList': s});
+    browser.storage.sync.set({'appList': s});
     console.log("Saving updated sequence after sortupdate");
   });
 
@@ -125,7 +125,7 @@ function validate_applist(applist,gapps_info) {
 $(function() {
   var default_applist = Object.keys(gapps_info).slice(0,9).join(',');
 
-  browser.storage.local.get({
+  browser.storage.sync.get({
     appList: default_applist
   }, function(items) {
     var applst = validate_applist(get_applist_arr(items.appList), gapps_info);
