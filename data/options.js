@@ -32,7 +32,10 @@ function setdefault(e) {
 //
 function restore() {
   function set(res) {
-    console.log(res);
+    if (res.appList === undefined) {
+      res.appList = default_applist;
+      console.log("Initial set")
+    }
     $("#appList").val(res.appList);
     applist_edit();
   }
