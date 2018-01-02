@@ -4,7 +4,7 @@
 VERSION   = 1.1
 SOURCES   = manifest.json data/* icons/*
 PACKAGE   = ../gglappbtn-$(VERSION).xpi
-EXCLUDES  = Makefile README.md *.DS_Store
+EXCLUDES  = Makefile README.md gen_readme_app_list.rb *.DS_Store
 
 build: $(PACKAGE)
 	@echo "Done"

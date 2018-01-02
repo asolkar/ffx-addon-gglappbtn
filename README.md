@@ -4,10 +4,9 @@ Simple access to Google Applications with a tool bar button
 
 > [Get on AMO](https://addons.mozilla.org/en-US/firefox/addon/google-app-launcher/)
 
-Currently has a hard coded links to popular Google applications. There is no customization support.
+Currently has links to popular Google applications in a 3x3 grid. There is some customization support to pick the 9 apps and the order.
 
 Supported apps:
-
 
 * `gplus`: Google+
 * `gmail`: Gmail
@@ -26,11 +25,11 @@ Supported apps:
 * `gtrans`: Translate
 * `gkeep`: Keep
 * `gmusic`: Music
+* `gslides`: Slides
+* `ginbox`: Inbox
+* `gallo`: Allo
+* `gclass`: Classroom
 * `google`: Search
-
-# Roadmap
-
-* Add more Google apps to supported list
 
 # Known issues
 
