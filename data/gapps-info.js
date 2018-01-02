@@ -91,6 +91,26 @@ var gapps_info = {
     "desc" : "Music",
     "iconpos" : "0px -2060px"
   },
+  "gslides": {
+    "url" : "https://slides.google.com/",
+    "desc" : "Slides",
+    "iconpos" : "0px -1104px"
+  },
+  "ginbox": {
+    "url" : "https://inbox.google.com",
+    "desc" : "Inbox",
+    "iconpos" : "0px -2128px"
+  },
+  "gallo": {
+    "url" : "https://allo.google.com/web",
+    "desc" : "Allo",
+    "iconpos" : "0px -2192px"
+  },
+  "gclass": {
+    "url" : "https://classroom.google.com",
+    "desc" : "Classroom",
+    "iconpos" : "0px -1310px"
+  },
   "google": {
     "url" : "https://www.google.com",
     "desc" : "Search",
