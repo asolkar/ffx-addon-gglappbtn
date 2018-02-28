@@ -12,7 +12,7 @@ var gapps_info = {
     "iconpos" : "0px -1863px"
   },
   "gmail": {
-    "url" : "https://gmail.com/",
+    "url" : "https://mail.google.com/",
     "desc" : "Gmail",
     "iconpos" : "0px -966px"
   },
