@@ -8,27 +8,28 @@ Currently has links to popular Google applications in a 3x3 grid. There is some 
 
 Supported apps:
 
-* `gplus`: Google+
 * `gmail`: Gmail
 * `gcal`: Calendar
-* `gdoc`: Docs
 * `gsheets`: Sheets
 * `gdrv`: Drive
+* `gnews`: News
+* `gdoc`: Docs
 * `gphotos`: Photos
 * `gmaps`: Maps
+* `gmeet`: Meet
+* `gpod`: Podcasts
 * `gplay`: Play
 * `gytube`: YouTube
-* `gnews`: News
-* `gwall`: Wallet
+* `gmsgs`: Messages
+* `gduo`: Duo
 * `ghang`: Hangouts
 * `gcont`: Contacts
 * `gtrans`: Translate
 * `gkeep`: Keep
 * `gmusic`: Music
 * `gslides`: Slides
-* `ginbox`: Inbox
-* `gallo`: Allo
 * `gclass`: Classroom
+* `ggroups`: Groups
 * `google`: Search
 
 # Known issues
