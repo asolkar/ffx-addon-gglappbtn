@@ -1,7 +1,7 @@
 #
 # Build extension package
 #
-VERSION   = 1.1
+VERSION   = 1.2
 SOURCES   = manifest.json data/* icons/*
 PACKAGE   = ../gglappbtn-$(VERSION).xpi
 EXCLUDES  = Makefile README.md gen_readme_app_list.rb *.DS_Store
