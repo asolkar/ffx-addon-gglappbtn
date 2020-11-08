@@ -71,11 +71,6 @@ var gapps_info = {
     "desc" : "Messages",
     "iconpos" : "0px -3030px"
   },
-  /*"gpay": {
-    "url" : "https://pay.google.com/",
-    "desc" : "Pay",
-    "iconpos" : "0px -414px"
-  },*/
   "gduo": {
     "url" : "https://duo.google.com/",
     "desc" : "Duo",
@@ -105,6 +100,11 @@ var gapps_info = {
     "url" : "https://music.youtube.com/",
     "desc" : "Music",
     "iconpos" : "0px -2962px"
+  },
+  "gvoice": {
+    "url" : "https://voice.google.com/",
+    "desc" : "Voice",
+    "iconpos" : "0px -3101px"
   },
   "gslides": {
     "url" : "https://slides.google.com/",

@@ -27,6 +27,7 @@ Supported apps:
 * `gtrans`: Translate
 * `gkeep`: Keep
 * `gmusic`: Music
+* `gvoice`: Voice
 * `gslides`: Slides
 * `gclass`: Classroom
 * `ggroups`: Groups
