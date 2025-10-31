@@ -21,7 +21,7 @@ Supported apps:
 * `gplay`: Play
 * `gytube`: YouTube
 * `gmsgs`: Messages
-* `gduo`: Duo
+* `gemini`: Gemini
 * `ghang`: Hangouts
 * `gcont`: Contacts
 * `gtrans`: Translate

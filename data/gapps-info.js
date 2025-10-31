@@ -71,9 +71,9 @@ var gapps_info = {
     "desc" : "Messages",
     "iconpos" : "0px -3030px"
   },
-  "gduo": {
-    "url" : "https://duo.google.com/",
-    "desc" : "Duo",
+  "gemini": {
+    "url" : "https://gemini.google.com/",
+    "desc" : "Gemini",
     "iconpos" : "0px -2346px"
   },
   "ghang": {
